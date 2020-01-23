@@ -133,7 +133,7 @@ export const Slide = props => {
           <p>{props.text}</p>
 
           <div className="slide-btn">
-            <Button path={props.path_url} text={props.button_text} />
+            <Button path={props.path_link} text={props.button_text} />
           </div>
         </SlideContent>
       </Wrapper>
@@ -175,8 +175,6 @@ const Home = () => {
       <StyledSlider {...settings}>
         {home_data.slider.map((slide, index) => {
           console.log(slide)
-          const url = slide.page_link.text
-          console.log(url)
           return (
             <Slide
               key={slide.title.text}
@@ -184,7 +182,7 @@ const Home = () => {
               image={slide.image.localFile.childImageSharp.fluid}
               text={slide.text.text}
               button_text={slide.button_text.text}
-              path_url={url}
+              path_link={slide.page_link.text}
             />
           )
         })}
